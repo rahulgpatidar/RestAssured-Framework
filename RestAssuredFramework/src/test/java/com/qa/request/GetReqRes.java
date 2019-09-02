@@ -11,13 +11,21 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import io.restassured.RestAssured.*;
+import io.restassured.matcher.RestAssuredMatchers.*;
+import org.hamcrest.Matchers.*;
+
 public class GetReqRes {
 
 	@Test
 	public void getuser() {
 		
 		RestAssured.baseURI="https://reqres.in";
-		
+		/*
+		 * RestAssured.basePath=""; RestAssured.basic(username, password);
+		 * RestAssured.oauth(consumerKey, consumerSecret, accessToken, secretToken);
+		 * RestAssured.oauth2(accessToken);
+		 */
 		RequestSpecification request=RestAssured.given();
 		
 		Response response=request.get("/api/users?page=2");
